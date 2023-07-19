@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var tabTitle = Tab.status
+    @State var tabTitle = Tab.chats
     
     var body: some View {
         NavigationStack {
@@ -41,6 +41,19 @@ struct ContentView: View {
                         Text("Chats")
                     }
                     .tag(Tab.chats)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button("Edit", action: {})
+                        }
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Image(systemName: "camera")
+                                .foregroundColor(.blue)
+                        }
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Image(systemName: "square.and.pencil")
+                                .foregroundColor(.blue)
+                        }
+                    }
                 
                 Text("Settings")
                     .tabItem {
@@ -50,6 +63,7 @@ struct ContentView: View {
                     .tag(Tab.settings)
                 
             }.navigationTitle(tabTitle.title)
+            
             
         }
         
